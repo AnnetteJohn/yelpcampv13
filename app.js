@@ -20,7 +20,14 @@ var commentRoutes 		= require('./routes/comments'),
 
 //seedDB() //seed the database
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb://localhost:27017/yelp_campv13" , { useNewUrlParser: true })
+mongoose.connect("mongodb+srv://annettejohn:Annette317@cluster0-brz9v.mongodb.net/<dbname>?retryWrites=true&w=majority" , { 
+    useNewUrlParser: true,
+    useCreateIndex: true
+}).then(() => {
+    console.log('Connected to DB');
+}).catch(err => {
+    console.log('ERROR:', err.message);
+})
 
 
 //Middlewares
