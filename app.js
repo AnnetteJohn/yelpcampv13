@@ -16,11 +16,11 @@ var commentRoutes 		= require('./routes/comments'),
 	campgroundRoutes 	= require('./routes/campgrounds'),
 	indexRoutes 			= require('./routes/index');
 
-
-
+   // mongodb://localhost:27017/yelp_campv13
+  // mongodb+srv://annettejohn:Annette317@cluster0-brz9v.mongodb.net/<dbname>?retryWrites=true&w=majority
 //seedDB() //seed the database
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb+srv://annettejohn:Annette317@cluster0-brz9v.mongodb.net/<dbname>?retryWrites=true&w=majority" , { 
+mongoose.connect(process.env.DATBASEURL , { 
     useNewUrlParser: true,
     useCreateIndex: true
 }).then(() => {
@@ -40,7 +40,7 @@ app.use(flash())
 
 //PASSPORT CONFIGURATION
 app.use(require('express-session')({
-	secret :" I lost my v at 14",
+	secret :" cats are the best",
 	resave : false,
 	saveUninitialized : false 
 }))
