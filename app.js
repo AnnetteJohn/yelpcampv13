@@ -19,8 +19,10 @@ var commentRoutes 		= require('./routes/comments'),
    // mongodb://localhost:27017/yelp_campv13
   // mongodb+srv://annettejohn:Annette317@cluster0-brz9v.mongodb.net/<dbname>?retryWrites=true&w=majority
 //seedDB() //seed the database
+
+var dburl = process.env.DATBASEURL || "mongodb://localhost:27017/yelp_campv13";
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect(process.env.DATBASEURL , { 
+mongoose.connect(dburl , { 
     useNewUrlParser: true,
     useCreateIndex: true
 }).then(() => {
